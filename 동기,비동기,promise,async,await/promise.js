@@ -13,6 +13,10 @@ Promise
 5. response.json()는 promise를 반환한다 -> 반환한 promise에서 then의 콜백 함수의 결과값을 첫번째 파라미터로 전달받아 출력하면 json 데이터에서 자바스크립트의 데이터로 변환된 데이터를 확인할 수 있다.
  
 * response.json(); - josn 데이터를 자바스크립트의 데이터 타입으로 변환해준다.
+** pending - 보류, 다음조치를 기다리고 있는 상태
+   resolved -  
+   rejected - 거부하다, 거절하다.
+
 */
 
 fetch('https://jsonplaceholder.typicode.com/posts')
@@ -28,6 +32,7 @@ fetch('https://jsonplaceholder.typicode.com/posts')
 
 /* const result = fetch('https://jsonplaceholder.typicode.com/posts');
 console.log(result); */
+
 
 
 
