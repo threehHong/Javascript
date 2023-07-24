@@ -16,9 +16,10 @@ Promise
 ** pending - 보류, 다음조치를 기다리고 있는 상태
    resolved -  
    rejected - 거부하다, 거절하다.
+*** 콜백 함수를 연속해서 사용할 때 가독성이 떨어지는 문제를 극복할 수 있다(콜백헬로 인한 가독성이 떨어지는 문제를 극복할 수 있다).
 
 */
-
+/* 
 fetch('https://jsonplaceholder.typicode.com/posts')
     .then(function(response) {
         // response.json().then(function(data){
@@ -28,7 +29,7 @@ fetch('https://jsonplaceholder.typicode.com/posts')
     })
     .then(function(myJson) {
         console.log(myJson);
-    }) // promise chaining 방식
+    }) // promise chaining 방식 */
 
 /* const result = fetch('https://jsonplaceholder.typicode.com/posts');
 console.log(result); */
@@ -36,16 +37,33 @@ console.log(result); */
 
 
 
+/* 
+Promise - 사용자 정의 promise
+
+Promise의 콜백함수에서 첫번째 파라미터는 성공했을 떄 두번쨰 파라미터는 실패했을 때의 파라미터
+let job1 = new Promise(function(resolve, reject){
+    // job1에 입력될 결과물.
+    resolve('resolved ok!');
+});
+*/
+/* function job1() {
+    return new Promise(function(resolve, reject){
+            setTimeout(function() {
+                resolve('resolved ok!');
+            }, 2000);
+        });
+}
+
+job1().then(function(data){
+    console.log(data);
+}) */
 
 
 
 
 
-
-
-
-// 함수 정의
-/* function increaseAndPrint(n, callback) {
+/* // 함수 정의
+function increaseAndPrint(n, callback) {
     setTimeout(() => {
         const increased = n + 1;
 
