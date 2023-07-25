@@ -57,33 +57,3 @@ let job1 = new Promise(function(resolve, reject){
 job1().then(function(data){
     console.log(data);
 }) */
-
-
-
-
-
-/* // 함수 정의
-function increaseAndPrint(n, callback) {
-    setTimeout(() => {
-        const increased = n + 1;
-
-        console.log(increased);
-
-        if (callback) {
-            callback(increased);
-        }
-    }, 1000);
-}
-
-// 함수 호출
-increaseAndPrint(0, n => {
-    increaseAndPrint(n, n => {
-        increaseAndPrint(n, n => {
-            increaseAndPrint(n, n => {
-                increaseAndPrint(n, n => {
-                    console.log('끝!');
-                });
-            });
-        });
-    });
-}); */
