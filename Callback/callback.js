@@ -34,7 +34,7 @@ first(second)
 
 /* 
 2. Callback 함수의 한계와 극복
-콜백함수의 복잡함을 극복하기 위해 promise가 나왔다 -> promise의 복잡함을 극복하기 위해 async, await가 나왔다.
+콜백함수로 인한 코드의 복잡함을 극복하기 위해 promise가 나왔다 -> promise로 인한 코드의 복잡함을 극복하기 위해 async & await가 나왔다.
 
 
 3. Callback Hell 

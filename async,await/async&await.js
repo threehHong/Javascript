@@ -1,8 +1,6 @@
 /* 
-비동기 프로그래밍 패턴
-async, await, promise등의 키워드를 사용.
-
 Async & Await
+콜백함수, promise로 인한 코드의 복잡함을 극복하기 위해 async & await가 나왔다.
 async와 await는 promise를 동기적으로 실행되는 것 처럼 보이게 하는 문법.
 
 async는 function 앞에 위치. 
