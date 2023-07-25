@@ -37,23 +37,72 @@ console.log(result); */
 
 
 
-/* 
-Promise - 사용자 정의 promise
 
-Promise의 콜백함수에서 첫번째 파라미터는 성공했을 떄 두번쨰 파라미터는 실패했을 때의 파라미터
-let job1 = new Promise(function(resolve, reject){
+/* 
+Promise - new Promise (사용자 정의 promise)
+
+Promise 함수에서 첫번째 파라미터는 성공했을 떄 실행될 함수가 오고, 
+                두번쨰 파라미터는 실패했을 때 실행될 함수가 온다.
+*/
+
+
+// 1.
+/* let job1 = new Promise(function(resolve, reject){});
+console.log(job1); // Promise 객체 출력. */
+
+
+// 2.
+/* let job1 = new Promise(function(resolve, reject){});
+job1.then(function(data) {
+    console.log('data', data); // 아무것도 출력되지 않는다.
+}) */
+
+
+// 3.
+/* let job1 = new Promise(function(resolve, reject){
     // job1에 입력될 결과물.
     resolve('resolved ok!');
 });
-*/
-/* function job1() {
+job1.then(function(data){
+    console.log('data', data);
+}) */
+
+
+// 4.
+function job1() {
     return new Promise(function(resolve, reject){
             setTimeout(function() {
-                resolve('resolved ok!');
+                resolve('job1 ok!');
             }, 2000);
         });
 }
 
-job1().then(function(data){
-    console.log(data);
-}) */
+function job2() {
+    return new Promise(function(resolve, reject){
+            setTimeout(function() {
+                reject('job2 fail!');
+            }, 2000);
+        });
+}
+
+// nested promise 방식
+// job1()
+//     .then(function(data){
+//         console.log(data);
+//         job2().then(function(data){
+//             console.log(data);
+//     })
+// })
+
+// promise chaining 방식
+job1()
+    .then(function(data) {
+        console.log(data);
+        return job2();
+    })
+    .then(function(data){
+        console.log(data);
+    })
+    .catch(function(reason){
+        console.log(reason);
+    })
