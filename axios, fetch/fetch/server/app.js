@@ -1,5 +1,9 @@
+// library import 방법
 const express = require('express')
+const cors = require('cors');
 const app = express()
+
+app.use(cors())
 
 // body-parser
 // API reference -> 5.x(beta) -> body로 키워드 찾기.
@@ -17,7 +21,7 @@ const todoList = [
 ];
 
 app.get('/', function (req, res) {
-  res.send('Hello World');
+  res.send('Hello World!');
 })
 
 app.get('/api/todo', function(req, res) {
@@ -35,6 +39,6 @@ app.post('/api/todo', function(req, res) {
   res.send("확인");
 })
 
-app.listen(3000, () => {
+app.listen(4000, () => {
     console.log('server start')
 })
