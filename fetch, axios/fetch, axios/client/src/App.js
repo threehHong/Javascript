@@ -66,7 +66,7 @@ function App() {
         'Content-Type': 'application/json'
       },
       // 데이터를 보내줄 때는 body에 담아서 보내준다
-      // 객체 데이터를 JSON+공백 제거 형태로 만들어 주는 코드
+      // JSON.stringify() 객체 데이터를 JSON+공백 제거 형태로 만들어 주는 코드
       body: JSON.stringify({
         text,
         done,
