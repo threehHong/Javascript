@@ -37,18 +37,19 @@ class Person {
 // 상속
 class Student extends Person {
     constructor(_name, _age, _dream) {
-        // super() - Person의 constructor 함수를 호출.
+        // constructor 내부에서의 super는 Person의 constructor 함수를 의미.
         super(_name, _age);
         this.dream = _dream;
     }
 
     showInfo() {
+        // constructor 외부에서 super는 Person 내부에서의 this를 의미.
         super.showInfo();
         console.log(`장래희망은 ${this.dream}입니다.`);
     }
 }
 
 const b = new Student('Sam', 22, 'teacher');
-// super를 통해 Person에 입력된 내용을 전부 상속 받았기 때문에 사용 가능.
+// extends Person을 했기 떄문에 Person에서 정의된 addCityInfo()를 사용할 수 있다.
 b.addCityInfo('Busan');
 b.showInfo();
