@@ -25,7 +25,7 @@ globalPhone(); // Phone name is Window{}
 
 
 
-// 3. 
+// 3.
 const phone2 = {
     name: 'samsung',
     sayName: phone.sayName
@@ -37,7 +37,7 @@ phone2.sayName(); // Phone name is {name: 'samsung', sayName: f}
 // 4. 호출하는 대상이 button 태그이므로 this는 button 태그를 가리킨다.
 const btn = document.getElementById('button');
 // Phone name is <button id="button"> this는 누구? </button>
-btn.addEventListener('click', phone.sayName);
+btn.addEventListener('click', phone.sayName); // Phone name is <button id="button"> this는 누구? </button>
 
 
 
@@ -45,7 +45,7 @@ btn.addEventListener('click', phone.sayName);
 //   this값을 고정 시켜주는데 사용하는 함수
 //   bind 함수를 통해 원하는 객체를 지정해줄 수 있다.    
 //   bind 함수의 괄호 안에 고정할 함수명을 넣는다.).
-btn.addEventListener('click', phone.sayName.bind(phone));
+btn.addEventListener('click', phone.sayName.bind(phone)); // Phone name is {name: 'apple', sayName: ƒ}
 
 
 
