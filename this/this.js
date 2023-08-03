@@ -1,5 +1,5 @@
 // 'use strict'
-// 1. this는 기본적으로 window를 가리킨다.
+// 1. this는 기본적으로 window를 가리킨다(호출하는 메소드를 포함하는 객체가 없을 경우 윈도우 객체를 가리킨다).
 this; // Window {}, strict 모드일 경우 undefined
 
 function isThis() {
