@@ -35,7 +35,7 @@ JSON 주의사항
 
 
 /* 
-1. 직렬화 (객체 -> 문자열)
+1. 직렬화 (객체 -> 문자열) - JSON.stringify(); (객체 데이터에서 문자열화된 JSON 데이터로 변환하는 것).
 직렬화 = 객체 데이터를 JSON으로 변환(객체의 키값을 쌍따옴표로 감싸는것) + 공백 제거 + JSON 데이터를 따옴표로 감싸는 것.
 
 let student = {
@@ -48,7 +48,7 @@ studentJsonType // '{"name":"Tom","major":"Computer Science","Grade":1}'
 console.log(studentJsonType); // {"name":"Tom","major":"Computer Science","Grade":1}
 
 
-2. 역직렬화 (문자열 -> 객체)
+2. 역직렬화 (문자열 -> 객체) - JSON.parse(); (문자열화된 JSON 데이터를 객체 데이터로 변환하는 것).
 역직렬화 = JSON 데이터를 감싸는 따옴표 제거 + 키값의 쌍따옴표를 제거.
 
 let studentJsonType = '{"name":"Tom","major":"Computer Science","Grade":1}'
