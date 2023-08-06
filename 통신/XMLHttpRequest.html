@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> XMLHttpRequest </title>
+    </head>
+    <body>
+        <div 
+            class="container" 
+            style="
+                width: 1200px; 
+                padding: 20px;
+                margin: 0 auto;"
+        > 
+            <h1> 학생 명단 </h1>
+
+            <div id="studentList"> </div>
+        </div>
+
+        <script>
+            // 1.
+            /* let xhr = new XMLHttpRequest();
+            xhr.open("GET", "./JSON/student.json");
+            xhr.send();
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    let student = JSON.parse(xhr.responseText);
+                    console.log(student);
+                }
+            } */
+            
+
+            // 2.
+            let studentList = document.getElementById('studentList');
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", "JSON/student2.json");
+            xhr.send();
+
+            xhr.onreadystatechange = function() {
+                if(xhr.readyState === 4 && xhr.status === 200) {
+                    let student = JSON.parse(xhr.responseText);
+                    console.log(student);
+
+                    outputHTML(student)
+                }
+
+                function outputHTML(student) {
+                    // 변수를 초기화 하지 않으면 처음에 담기는 내용이 undefined가 된다.
+                    let output = ''; 
+
+                    student.map(student => 
+                        output +=
+                            `<h2 style="padding-left: 15px"> ${student.name} </h2>
+                             <ul> 
+                                <li> major : ${student.major} </li>
+                                <li> grade :  ${student.grade} </li>
+                             </ul>
+                             <hr>` 
+                    );
+
+                    studentList.innerHTML = output;
+                }
+            }
+        </script>
+    </body>
+</html>
