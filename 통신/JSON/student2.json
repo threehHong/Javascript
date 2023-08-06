@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Tom",
+        "major": "Computer Science",
+        "grade": 1
+    },
+    {
+        "name": "Mike",
+        "major": "Philosophy",
+        "grade": 2
+    },
+    {
+        "name": "Jim",
+        "major": "Mathematics",
+        "grade": 4
+    }
+]
