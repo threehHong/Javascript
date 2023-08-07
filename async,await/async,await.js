@@ -1,6 +1,6 @@
 /* 
 1. Async & Await
-Async, Await 키워드를 통해 비동기 로직을 컨트롤 할 수 있다
+Async, Await 키워드를 통해 실행 순서를 제어할 수 있다.
 
 콜백함수, promise로 인한 코드의 복잡함을 극복하기 위해 async & await가 나왔다.
 
