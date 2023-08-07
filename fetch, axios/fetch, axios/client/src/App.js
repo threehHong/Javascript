@@ -42,6 +42,7 @@ function App() {
     fetchData();
   }, []);
 
+  // 2. 서버에게 입력한 데이터를 보내 DB에 저장해 달라는 API 로직
   const onSubmitHandler = async (e) => {
     const text = e.target.text.value;
     const done = e.target.done.checked;
@@ -55,7 +56,7 @@ function App() {
     const text = e.target.text.value;
     const done = e.target.done.checked;
   
-    // 2. 서버에게 입력한 데이터를 보내 DB에 저장해 달라는 API 로직
+    
     fetch('http://localhost:4000/api/todo', {
       // 아무것도 적지 않으면 GET 요청(또는 method를 적지 않으면).
       method: 'POST',
