@@ -48,13 +48,33 @@ studentJsonType // '{"name":"Tom","major":"Computer Science","Grade":1}'
 console.log(studentJsonType); // {"name":"Tom","major":"Computer Science","Grade":1}
 
 
-2. 역직렬화 (문자열 -> 객체) - JSON.parse(); (문자열화된 JSON 데이터를 객체 데이터로 변환하는 것).
+2-1. 역직렬화 (문자열 -> 객체) - JSON.parse(); (문자열화된 JSON 데이터를 객체 데이터로 변환하는 것).
 역직렬화 = JSON 데이터를 감싸는 따옴표 제거 + 키값의 쌍따옴표를 제거.
 
 let studentJsonType = '{"name":"Tom","major":"Computer Science","Grade":1}'
 let studentObjectType = JSON.parse(studentJsonType);
 console.log(studentObjectType); // {name: 'Tom', major: 'Computer Science', Grade: 1}
  
+
+2-2. .json() - (문자열화된 JSON 데이터를 객체 데이터로 변환하는 함수)
+fetch(`JSON/student2.json`)
+    // response.json() -> json 데이터를 자바스크립트 객체로 파싱.
+    .then(response => response.json())
+    .then(lists => {
+      let output = "";
+      lists.map(student => {
+        output +=`
+          <h2> ${student.name} </h2>
+          <ul>
+            <li> 전공 : ${student.major} </li>
+            <li> 학년 : ${student.grade} </li>
+          </ul>`
+      })
+
+      let result = document.querySelector('#result');
+      result.innerHTML = output;
+    }
+    );
 
 3. Parsing
 JSON 데이터를 객체 데이터로 변환 시키는 것.
