@@ -24,7 +24,7 @@ function App() {
     const response = await axios.get(SERVER_URL);
       setTodoList(response.data); 
       console.log('내용확인 : ', response);
-    
+    }
 
     /* fetch('http://localhost:4000/api/todo')
       .then((response) => {
@@ -32,7 +32,6 @@ function App() {
         return response.json()
       })
       .then((data) => setTodoList(data)) */
-  }
   
   // fetch 함수 밖에 useEffect를 사용하는 이유 
   // 리렌더링을 막기위해 사용
@@ -43,16 +42,16 @@ function App() {
   }, []);
 
   // 2. 서버에게 입력한 데이터를 보내 DB에 저장해 달라는 API 로직
-  const onSubmitHandler = async (e) => {
+  /* const onSubmitHandler = async (e) => {
     const text = e.target.text.value;
     const done = e.target.done.checked;
   
     // axios는 fetch와 달리 method, header, body를 지정하지 않아도 자동으로 셋팅해준다.
     await axios.post(SERVER_URL, {text, done})
     fetchData();
-  }
+  } */
 
-  /* const onSubmitHandler = (e) => {
+  const onSubmitHandler = (e) => {
     const text = e.target.text.value;
     const done = e.target.done.checked;
   
@@ -73,7 +72,7 @@ function App() {
         done,
       })
     }).then(() => {fetchData()})
-  } */
+  }
 
   return (
     <div>
