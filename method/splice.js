@@ -8,6 +8,8 @@ arr.splice(start[, deleteCount[, item[, item2[, ...]]]])
 
 - item - 배열에 추가할 요소
   * 생략할 경우 요소를 제거만 한다.
+
+* splice : (두 끝을) 잇다, 붙이다
 */
 
 let month = ["Jan", "March", "April", "June"];
