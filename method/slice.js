@@ -11,6 +11,8 @@ arr.slice([begin[, end]])
 
 - begin이나 end가 음수이면 배열의 끝에서부터 계산한다
   * 가장 우측부터 시작해서 왼쪽으로 숫자가 작아진다(-3, -2, -1).
+
+* slice : 1. 자르다, 썰다. 2. 조각.
 */
 
 const animals = ["ant", "bison", "camel", "duck", "elephant"];
