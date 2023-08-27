@@ -64,7 +64,8 @@ console.log(a);
 
 // TDZ(Temporal Dead Zone)
 /* 
-어떤 변수에 대한 선언문이 나오기 전까의 범위는 그 변수가 사용될 수 없는 zone이라는 의미.
+- 어떤 변수에 대한 선언문이 나오기 전까의 범위는 그 변수가 사용될 수 없는 zone이라는 의미.
+- let과 const에는 TDZ가 적용된다.
 */
 
 
