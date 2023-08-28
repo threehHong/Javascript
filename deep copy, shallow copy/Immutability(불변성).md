@@ -27,6 +27,6 @@ const [person, setPerson] = useState({id: 1});
 person.name = 'Lily';
 
 // 그래서 내부 변화의 표시로 기존 person 저장소에 저장된 객체의 메모리 주소를 바꿔주는 것으로 한다면 위의 많은 연산 과정을 피할 수 있다. 따라서 리액트에서는 상태의 메모리 주소를 기준으로 변화를 감지한다.
-setPerson({...person, name:'Lily'});
+setPerson({...person, name:'Lyli'});
 
 ```
