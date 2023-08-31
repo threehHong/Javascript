@@ -164,3 +164,5 @@ func11();
 - https://alok-verma6597.medium.com/event-loop-in-javascript-431003755cd4
 
 - https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif
+
+- https://youtu.be/8aGhZQkoFbQ?si=45bF079d2yoHaWbX
