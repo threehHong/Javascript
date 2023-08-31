@@ -41,7 +41,7 @@
   construcor() {}와 동일하게 동작한다.
   이 경우 인스턴스에 속성을 추가하려면 인스턴스를 생성한 후에 동적으로 추가해야 한다.
 
-```
+```javascript
 class Car {}
 
 const myCar = new Car();
@@ -57,7 +57,7 @@ console.log(myCar.make); // BMW
 
 ### class 설명을 위한 예시 코드
 
-```
+```javascript
 class User {
   constructor(name) {
     this.name = name;
@@ -84,7 +84,7 @@ new User()로 호출을 하면 User 내부에서 정의한 메소드가 들어�
 
 - extends와 super()함수를 사용하여 부모 class에 사용된 생성자 함수를 가져와 사용할 수 있다.
 
-```
+```javascript
 class Person {
   constructor(name, age) {
     this.name = name;
