@@ -26,13 +26,13 @@
 ```
 function User(name) {
     this.name = name;
-    this.isAdmin = false;
+    this.isCaptinAmerica = false;
 }
 
-let user = new User("보라");
+let user = new User("spider-man");
 
-console.log(user.name); // 보라
-console.log(user); // User {name: '보라', isAdmin: false}
+console.log(user.name); // spider-man
+console.log(user); // User {name: 'spider-man', isCaptinAmerica: false}
 ```
 
 <br>
@@ -53,11 +53,11 @@ function User(name) {
 }
 ```
 
-let user = new User("보라");의 결과는 아래와 같다.
+let user = new User("spider-man");의 결과는 아래와 같다.
 
 ```
 let user = {
-    name: "보라",
+    name: "spider-man",
     isAdmin: false
 }
 ```
