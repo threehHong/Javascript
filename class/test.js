@@ -30,7 +30,7 @@ console.log(myCar.make); // BMW
 */
 
 // 3. extends, super()
-class Person {
+/* class Person {
   constructor(name, age) {
     this.name = name;
     this.age = age;
@@ -62,4 +62,37 @@ class Child extends Person {
 }
 
 const child1 = new Child("Tom", 15, "playing soccer");
-child1.introduce();
+child1.introduce(); */
+
+// 4. 생성자 함수
+/* function Animal(name, species) {
+  this.name = name;
+  this.species = species;
+  this.introduce = () => {
+    console.log(`Hi my name is ${this.name}`);
+  };
+}
+
+let panda = new Animal("Pubao", "Mammalia");
+
+panda.introduce();
+ */
+
+// 5. 계산기(생성자 함수를 활용한 계산기).
+function Calculator() {
+  this.read = () => {
+    this.value1 = Number(prompt("첫번쨰 숫자를 입력하세요"));
+    this.value2 = Number(prompt("두번쨰 숫자를 입력하세요"));
+  };
+  this.sum = () => {
+    return (sum = this.value1 + this.value2);
+  };
+  this.mul = () => {
+    return (mul = this.value1 * this.value2);
+  };
+}
+let calculator = new Calculator();
+calculator.read();
+
+console.log("Sum = " + calculator.sum());
+console.log("Mul = " + calculator.mul());
