@@ -61,3 +61,51 @@ let user = {
     isAdmin: false
 }
 ```
+
+<br>
+
+### 연습 문제
+
+- 문제
+
+```
+아래와 같은 세 개의 메서드를 가진 생성자 함수, Calculator를 만들어보세요.
+- read() – prompt 함수를 이용해 사용자로부터 값 두 개를 받고, - 이를 객체 프로퍼티에 저장합니다.
+- sum() – 프로퍼티에 저장된 값 두 개를 더한 후 반환합니다.
+  mul() – 프로퍼티에 저장된 값 두 개를 곱한 후 반환합니다.
+
+예시
+let calculator = new Calculator();
+calculator.read();
+
+alert( "Sum=" + calculator.sum() );
+alert( "Mul=" + calculator.mul() );
+```
+
+- 정답
+
+```
+function Calculator() {
+  this.read = () => {
+    this.value1 = Number(prompt("첫번쨰 숫자를 입력하세요"));
+    this.value2 = Number(prompt("두번쨰 숫자를 입력하세요"));
+  };
+  this.sum = () => {
+    return (sum = this.value1 + this.value2);
+  };
+  this.mul = () => {
+    return (mul = this.value1 * this.value2);
+  };
+}
+let calculator = new Calculator();
+calculator.read();
+
+console.log("Sum = " + calculator.sum());
+console.log("Mul = " + calculator.mul());
+```
+
+<br>
+
+### 참고 자료
+
+- https://ko.javascript.info/constructor-new
