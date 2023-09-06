@@ -9,6 +9,8 @@
 
 ### execution context의 내용
 
+- 환경 정보 - 변수와 함수에 대한 정보.
+
 ### execution context에서 사용되는 용어
 
 - 전역 실행 컨텍스트 <br>
