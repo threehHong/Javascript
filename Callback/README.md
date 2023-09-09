@@ -71,7 +71,7 @@ function asyncFunction2(callback) {
   console.log("asyncFunction2");
 }
 
-// 비동기 함수 1 호출 후, 비동기 함수 2 호출, 그 후 비동기 함수 3 호출
+// 함수 호출
 asyncFunction1(function () {
   asyncFunction2(function () {
     console.log("모든 비동기 함수 완료");
