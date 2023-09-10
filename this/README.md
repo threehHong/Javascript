@@ -30,7 +30,24 @@ console.log(this === window); // true
 
 <br>
 
-### 함수와 메소드 구별 방법
+- 함수 안에서의 this <br>
+  'use strict' 모드에서는 undefined가 출력되고 window {}가 출력되고
+  'use strict' 모드가 아닐 경우 window {}가 출력된다.
+
+```javascript
+"use strict";
+
+function sayHello() {
+  console.log("Hi");
+  console.log(this);
+}
+
+sayHello(); // use strict이므로 undefined 출력
+```
+
+<br>
+
+### 함수와 메서드 구별 방법
 
 - 메서드 - 객체의 프로퍼티로 할당된 함수 <br>
   참고로 어떤 함수를 객체의 프로퍼티로 할당한다고 해서 메서드가 되지 않는 경우가 있다 따라서 <br>
@@ -56,6 +73,12 @@ console.log(a); // 1
 console.log(window.a); // 1
 console.log(this.a); // 1
 ```
+
+<br>
+
+### 정리할 내용
+
+- apply, call, bind
 
 <br>
 
