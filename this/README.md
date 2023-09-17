@@ -70,10 +70,10 @@ sayHello(); // Window {0: Window, window: Window, self: Window, document: docum
 - 전역 변수를 선언하면 자바스크립트 엔진은 이를 전역 객체의 프로퍼티로 할당한다. <br>
   즉 변수이면서 객체의 프로퍼티이기도 하다는 말이다.
 
-- 이렇게 동작되는 원리는 **자바스크립트의 모든 변수는 특정 객체의 프로퍼티**로서 동작하기 때문. <br>
-  여기서 특정 객체는 실행 컨텍스트를 말한다(실행 컨텍스트의 Lexical Environment LE를 의미).
+  - 이렇게 동작되는 원리는 **자바스크립트의 모든 변수는 특정 객체의 프로퍼티**로서 동작하기 때문. <br>
+    여기서 특정 객체는 실행 컨텍스트를 말한다(실행 컨텍스트의 Lexical Environment LE를 의미).
 
-- a를 출력하면 1이 나오는 이유는 스코프 체인을 통해 a를 검색하기 떄문이고 단순하게 window.을 생략한 것이라고 봐도 된다.
+  - a를 출력하면 1이 나오는 이유는 스코프 체인을 통해 a를 검색하기 떄문이고 단순하게 window.을 생략한 것이라고 봐도 된다.
 
 ```javascript
 var a = 1;
@@ -102,6 +102,29 @@ window.b = 2;
 console.log(b, window.b, this.b);
 delete window.b; // true
 console.log(b, window.b, this.b); // Uncaught ReferenceError: b is not defined
+```
+
+<br>
+
+### 명시적으로 this를 바인딩 하는 방법(call, apply, bind)
+
+- call
+
+```javascript
+var personA = {
+  name = "Smith",
+  introduce: function() {
+    console.log(`Hi, I'm ${this.name}`);
+  }
+}
+var personB = {
+  name = "Jacob"
+}
+personA.introduce(); // 'Smith'
+personA.introduce.call(personB); // 'Smith'
+
+
+
 ```
 
 <br>
