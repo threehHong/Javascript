@@ -53,18 +53,6 @@ sayHello(); // Window {0: Window, window: Window, self: Window, document: docum
 
 <br>
 
-### 함수와 메서드 구별 방법
-
-- 메서드 - 객체의 프로퍼티로 할당된 함수 <br>
-  참고로 어떤 함수를 객체의 프로퍼티로 할당한다고 해서 메서드가 되지 않는 경우가 있다 따라서 <br>
-
-- 함수로 호출한 경우인지, 메서드로 호출한 경우인지를 통해 함수와 메소드를 구별한다(함수 앞에 점이 있는 지의 여부로 파악).
-
-- 함수는 그 자체로 독립적인 기능을 수행한다. <br>
-  메서드는 자신을 포함하는 객체에 관한 동작을 수행한다
-
-<br>
-
 ### 전역 객체와 전역 변수
 
 - 전역 변수를 선언하면 자바스크립트 엔진은 이를 전역 객체의 프로퍼티로 할당한다. <br>
@@ -108,9 +96,33 @@ console.log(b, window.b, this.b); // Uncaught ReferenceError: b is not defined
 
 ### 명시적으로 this를 바인딩 하는 방법(call, apply, bind)
 
-- call
+- 함수를 호출할 떄 사용하는 메서드들로 호출시 다른 객체나 함수를 호출하는 함수 내에서 this로 지정하여 사용할 수 있다
+- 이를 통해 다른 객체나 함수를 가져와 사용할 수 있다.
+
+<br>
+
+- call <br>
+  주어진 this 값 및 각각 전달된 인수와 함께 함수를 호출. <br>
+  바인딩할 객채 or 함수.call(this(바인딩할 객체 or 함수), 함수의 매개 변수)
 
 ```javascript
+// 1
+function Product(name, price) {
+  this.name = name;
+  this.price = price;
+}
+
+function Food(name, price) {
+  /* Product - 바인딩할 함수, this - Product를 가리킴, name과 price는 바인딩할 함수의 매개변수에 전달될 인자. */
+  Product.call(this, name, price);
+  this.category = 'food';
+}
+
+const food = new Food('cheese', 5);
+
+console.log(food.name, food.price); // cheese, 5
+
+// 2
 var personA = {
   name = "Smith",
   introduce: function() {
@@ -122,10 +134,31 @@ var personB = {
 }
 personA.introduce(); // 'Smith'
 personA.introduce.call(personB); // 'Smith'
+```
 
+<br>
 
+- apply <br>
+  주어진 this 값 및 각각 전달된 인수와 함께 함수를 호출. <br>
+  바인딩할 객채 or 함수.call(this(바인딩할 객체 or 함수), 함수의 매개 변수 - 배열로 전달).
+
+- call()과 apply()는 거의 동일하지만, call()은 인수 목록을, apply()는 인수 배열 하나를 받는 다는 점이 중요한 차이점이다.
+
+```javascript
 
 ```
+
+<br>
+
+### 함수와 메서드 구별 방법
+
+- 메서드 - 객체의 프로퍼티로 할당된 함수 <br>
+  참고로 어떤 함수를 객체의 프로퍼티로 할당한다고 해서 메서드가 되지 않는 경우가 있다 따라서 <br>
+
+- 함수로 호출한 경우인지, 메서드로 호출한 경우인지를 통해 함수와 메소드를 구별한다(함수 앞에 점이 있는 지의 여부로 파악).
+
+- 함수는 그 자체로 독립적인 기능을 수행한다. <br>
+  메서드는 자신을 포함하는 객체에 관한 동작을 수행한다
 
 <br>
 
@@ -138,3 +171,5 @@ personA.introduce.call(personB); // 'Smith'
 ### 참고 자료
 
 - 정재남. (2020). 코어 자바스크립트. 위키북스
+
+- MDN Web Docs
