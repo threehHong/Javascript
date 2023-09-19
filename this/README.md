@@ -96,14 +96,17 @@ console.log(b, window.b, this.b); // Uncaught ReferenceError: b is not defined
 
 ### 명시적으로 this를 바인딩 하는 방법(call, apply, bind)
 
-- 함수를 호출할 떄 사용하는 메서드들로 호출시 다른 객체나 함수를 호출하는 함수 내에서 this로 지정하여 사용할 수 있다
+- 함수를 호출할 떄 사용하는 메서드들로 호출시 다른 객체나 함수를 호출하는 함수 내에서 this로 지정하여 사용할 수 있다.
+
 - 이를 통해 다른 객체나 함수를 가져와 사용할 수 있다.
 
 <br>
 
-- call <br>
-  주어진 this 값 및 각각 전달된 인수와 함께 함수를 호출. <br>
-  바인딩할 객채 or 함수.call(this(바인딩할 객체 or 함수), 함수의 매개 변수)
+call <br>
+> 주어진 this 값 및 각각 전달된 인수와 함께 함수를 호출. <br>
+> 바인딩할 객채 or 함수.call(this(바인딩할 객체 or 함수), 함수의 매개 변수) <br>
+> call 메서드의 첫 번째 인자를 this로 바인딩, 이후의 인자들은 호출할 함수의 매개변수. <br>
+
 
 ```javascript
 // 1
@@ -138,14 +141,27 @@ personA.introduce.call(personB); // 'Smith'
 
 <br>
 
-- apply <br>
-  주어진 this 값 및 각각 전달된 인수와 함께 함수를 호출. <br>
-  바인딩할 객채 or 함수.call(this(바인딩할 객체 or 함수), 함수의 매개 변수 - 배열로 전달).
-
-- call()과 apply()는 거의 동일하지만, call()은 인수 목록을, apply()는 인수 배열 하나를 받는 다는 점이 중요한 차이점이다.
+apply <br>
+> call 메서드와 기능적으로 완전히 동일함. <br>
+> 첫 번째 인자들을 제외한 두 번째 인자를 배열로 받고 이 배열 요소들은 호출한 함수의 매개 변수로 지정된다(call 메서드는 첫 번째 인자를 제외한 나머지 모든 인자들이 호출할 함수의 매개변수로 지정된다).<br>
+> 바인딩할 객채 or 함수.apply(this(바인딩할 객체 or 함수), [함수의 매개 변수 - 배열로 전달]).
 
 ```javascript
+// 1
+var func = function(a, b, c) {
+  console.log(this, a, b, c);
+};
 
+func.apply({x: 1}, [4, 5, 6]); // {x: 1} 4 5 6
+
+// 2
+var obj = {
+  a: 1,
+  method: function(x, y) {
+    console.log(this.a, x, y);
+  }
+};
+obj.method.apply({a:4}, [5, 6]); // 4 5 6 
 ```
 
 <br>
