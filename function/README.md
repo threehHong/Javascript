@@ -22,6 +22,8 @@
 })();
 ```
 
+<br>
+
 ### 즉시 실행 함수의 사용 이유
 
 - 변수 스코프 제한 <br>
@@ -30,6 +32,39 @@
 - 초기화나 설정 코드 실행에 사용 <br>
 
 - 모듈화, 클로저 등의 활용 등이 있다.
+
+<br>
+
+### arguments 객체
+
+- 피호출 함수에 전달된 인자들이 배열 형태로 저장된 객체.
+
+- 피호출 함수에 생략해도 호출시 입력한 인자가 전달되어 arguments 객체에 배열 형태로 저장된다.
+
+- 일반 함수에서 arguments 사용 가능 <br>
+  화살표 함수에서는 arguments 사용 불가
+
+```javascript
+// a, b, c를 생략해도 호출시 입력한 인자가 전달된다
+function func(/* a, b, c */) {
+  console.log(arguments[0]); // 1
+  console.log(arguments[1]); // 2
+  console.log(arguments[2]); // 3
+}
+
+func(1, 2, 3);
+
+// 화살표 함수에서는 arguments 객체 사용 불가.
+const func = (a, b, c) => {
+  console.log(arguments[0]); // 1
+  console.log(arguments[1]); // 2
+  console.log(arguments[2]); // 3
+};
+
+func(1, 2, 3); // Uncaught ReferenceError: arguments is not defined
+```
+
+<br>
 
 ### 참고
 
