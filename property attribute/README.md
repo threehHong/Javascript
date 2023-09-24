@@ -42,6 +42,13 @@ const person = {
 // Object.getOwnPropertyDescriptor는 property attribute 값들을 반환한다.
 console.log(Object.getOwnPropertyDescriptor(person, "name"));
 // {value: 'Lee', writable: true, enumerable: true, configurable: true}
+
+person.age = 20;
+
+// person객체에 있는 속성들의 property attriute의 값들을 반환한다.
+console.log(Object.getOwnPropertyDescriptors(person));
+// age : {value: 20, writable: true, enumerable: true, configurable: true}
+// name : {value: 'Lee', writable: true, enumerable: true, configurable: true}
 ```
 
 <br>
