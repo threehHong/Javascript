@@ -96,10 +96,9 @@ console.log(b, window.b, this.b); // Uncaught ReferenceError: b is not defined
 
 ### 명시적으로 this를 바인딩 하는 방법(call, apply, bind)
 
-- apply와 call 메서드의 기능은 함수를 호출하는 것이다, <br>
-  이때 함수를 호출하면서 첫 번째 인수로 전달한 특정 객체를 호출한 함수의 this에 바인딩한다.
-
-<br>
+> call과 apply <br>
+> apply와 call 메서드의 기능은 함수를 호출하는 것이다, <br>
+> 이때 함수를 호출하면서 첫 번째 인수로 전달한 특정 객체를 호출한 함수의 this에 바인딩한다.
 
 ```javascript
 function getThisBinding() {
@@ -183,6 +182,41 @@ obj.method.apply({ a: 4 }, [5, 6]); // 4 5 6
 
 <br>
 
+bind <br>
+
+> bind() 메소드가 호출되면 새로운 함수를 생성한다, <br>
+> 이때 함수를 호출하면서 첫 번째 인수로 전달된 특정 객체는 호출한 함수의 this에 바인딩되고, 두 번째 인자들은 호출한 함수의 매개 변수로 지정된다
+
+```javascript
+// 1
+var person = {
+  name: "James",
+};
+
+function introduce() {
+  console.log(`Hi my name is ${this.name}`);
+}
+
+var bindTest = introduce.bind(person);
+
+bindTest(); // Hi my name is James
+
+// 2
+const person = {
+  name: "Smith",
+};
+
+function personInfo(age, city) {
+  console.log(`Name: ${this.name}, Age: ${age}, City: ${city}`);
+}
+
+const showPersonInfo = personInfo.bind(person, 30, "New York");
+
+showPersonInfo(); // Name: Smith, Age: 30, City: New York
+```
+
+<br>
+
 ### 함수와 메서드 구별 방법
 
 - 메서드 - 객체의 프로퍼티로 할당된 함수 <br>
@@ -192,12 +226,6 @@ obj.method.apply({ a: 4 }, [5, 6]); // 4 5 6
 
 - 함수는 그 자체로 독립적인 기능을 수행한다. <br>
   메서드는 자신을 포함하는 객체에 관한 동작을 수행한다
-
-<br>
-
-### 정리할 내용
-
-- apply, call, bind
 
 <br>
 
