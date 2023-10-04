@@ -42,6 +42,9 @@
 - 순회 원리 <br>
   내부적으로 itelator.next()가 작동.
 
+- 예외 사항 <br>
+  객체들은 순회 가능하다 Symbol.iterator : value()이 없어도
+
 ### Reference
 
 - 이웅모. (2020). 모던 자바스크립트 Deep Dive. 위키북스.
