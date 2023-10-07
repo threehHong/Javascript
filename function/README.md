@@ -2,6 +2,14 @@
 
 - 정리하기.
 
+<br>
+
+### 고차 함수
+
+- 함수를 인자로 전달받거나 함수를 결과로 반환하는 함수.
+
+<br>
+
 ### 즉시 실행 함수(IIFE, Immediately-invoked function expression)
 
 - 정의되자마자 즉시 실행되는 함수 또는 패턴
