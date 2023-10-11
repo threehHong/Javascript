@@ -13,7 +13,7 @@ Promise
 
 5. response.json()는 promise를 반환한다 -> 반환한 promise에서 then의 콜백 함수의 결과값을 첫번째 파라미터로 전달받아 출력하면 json 데이터에서 자바스크립트의 데이터로 변환된 데이터를 확인할 수 있다.
  
-* response.json(); - josn 데이터를 자바스크립트의 데이터 타입으로 변환해준다.
+* .json(); - JSON 데이터를 파싱하여 JavaScript 객체로 변환해주는 메소드.
 ** pending - 보류, 다음조치를 기다리고 있는 상태
    resolved -  
    rejected - 거부하다, 거절하다.
@@ -35,8 +35,6 @@ fetch('https://jsonplaceholder.typicode.com/posts')
 /* const result = fetch('https://jsonplaceholder.typicode.com/posts');
 console.log(result); */
 
-
-
 /* 
 Promise - new Promise (사용자 정의 promise)
 
@@ -44,65 +42,61 @@ Promise 함수에서 첫번째 파라미터는 성공했을 떄 실행될 함수
                 두번쨰 파라미터는 실패했을 때 실행될 함수가 온다.
 */
 
-// 1. 
+// 1.
 let americano = true;
 
 const coffeeOrder = new Promise((resolve, reject) => {
-    if(americano) {
-        // resolve의 괄호 안의 문자열을 then에 전달
-        resolve("아메리카노 주문 완료"); 
-    } else {
-        // reject의 괄호 안의 문자열을 catch에 전달
-        reject("아메리카노 주문 실패");
-    }
+  if (americano) {
+    // resolve의 괄호 안의 문자열을 then에 전달
+    resolve("아메리카노 주문 완료");
+  } else {
+    // reject의 괄호 안의 문자열을 catch에 전달
+    reject("아메리카노 주문 실패");
+  }
 });
 
 coffeeOrder
-    .then(result => console.log(result)) // 아메리카노 주문 완료
-    // .catch(reject => console.log(reject)) // 아메리카노 주문 실패
-    .catch(err => console.log(err)) // 아메리카노 주문 실패
-    .finally(() => {
-        console.log('아메라카노 주문 시스템');
-    })
-
+  .then((result) => console.log(result)) // 아메리카노 주문 완료
+  // .catch(reject => console.log(reject)) // 아메리카노 주문 실패
+  .catch((err) => console.log(err)) // 아메리카노 주문 실패
+  .finally(() => {
+    console.log("아메라카노 주문 시스템");
+  });
 
 // 2.
-/* let job1 = new Promise(function(resolve, reject){});
+/* let job1 = new Promise(function (resolve, reject) {});
 console.log(job1); // Promise 객체 출력. */
 
-
 // 3.
-/* let job1 = new Promise(function(resolve, reject){});
-job1.then(function(data) {
-    console.log('data', data); // 아무것도 출력되지 않는다.
-}) */
-
+/* let job1 = new Promise(function (resolve, reject) {});
+job1.then(function (data) {
+  console.log("data", data); // 아무것도 출력되지 않는다.
+}); */
 
 // 4.
-/* let job1 = new Promise(function(resolve, reject){
-    // job1에 입력될 결과물.
-    resolve('resolved ok!');
+/* let job1 = new Promise(function (resolve, reject) {
+  // job1에 입력될 결과물.
+  resolve("resolved ok!");
 });
-job1.then(function(data){
-    console.log('data', data);
-}) */
-
+job1.then(function (data) {
+  console.log("data", data); // data resolved ok!
+}); */
 
 // 5.
 function job1() {
-    return new Promise(function(resolve, reject){
-            setTimeout(function() {
-                resolve('job1 ok!');
-            }, 2000);
-        });
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      resolve("job1 ok!");
+    }, 2000);
+  });
 }
 
 function job2() {
-    return new Promise(function(resolve, reject){
-            setTimeout(function() {
-                reject('job2 fail!');
-            }, 2000);
-        });
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      reject("job2 fail!");
+    }, 2000);
+  });
 }
 
 // nested promise 방식
@@ -116,18 +110,16 @@ function job2() {
 
 // promise chaining 방식
 job1()
-    .then(function(data) {
-        console.log(data);
-        return job2();
-    })
-    .then(function(data){
-        console.log(data);
-    })
-    .catch(function(reason){
-        console.log(reason);
-    })
-
-
+  .then(function (data) {
+    console.log(data);
+    return job2();
+  })
+  .then(function (data) {
+    console.log(data);
+  })
+  .catch(function (reason) {
+    console.log(reason);
+  });
 
 /* 
 프로미스 체이닝
